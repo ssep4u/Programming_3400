@@ -8,6 +8,9 @@
     border-radius: 16px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);   /* 0: 가로, 2px: 세로, 4px: blur */
 }
+.todo--pink {
+    background-color: #ffcfe8;
+}
 .todo__title {
     font-size: 2rem;
 }
@@ -34,6 +37,13 @@
 }
 .todo__button--add {
     background-color: #4984e4;
+}
+.todo__button--theme {
+    margin-bottom: 10px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    color: #333;
+    font-size: 0.9rem;
 }
 .todo__item {
     display: flex;
