@@ -40,3 +40,4 @@ npm create vite@latest .
     <Link to="/"></Link>
     ```
 - `useNavigate()`
+- 3407 윤다경 1-6 시계	★★	useEffect, setInterval, cleanup
