@@ -45,7 +45,7 @@ export default function TodoItem({ todo, toggleTodo, deleteTodo, editTodo }) {
                     autoFocus
                 />
             }
-
+            <span className="todo__date">{new Date(todo.createdAt).toLocaleDateString()}</span>
             <Button
                 className="todo__button todo__button--edit"
                 onClick={handleEditClick}
