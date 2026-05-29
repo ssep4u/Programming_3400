@@ -1,16 +1,24 @@
 # Programming 소스 코드 🥱
+
 ## 02_counter
+
 vanilla HTML, JavaScript
+
 ## React 시작 🦥
+
 ```shell
 npm create vite@latest .
 ```
+
 ### CounterApp 😴
+
 - `useState(초기값)`
 - `onClick={() => set함수(바꿀값)}`
 - `onClick={() => set함수((이전state) => 이전state + 1)}`
 - `onClick={함수이름}`
+
 ### TodoListApp 🧂
+
 - React Component 분리
 - for -> htmlFor, class -> className
 - props
@@ -35,8 +43,9 @@ npm create vite@latest .
             <Route path="/" element={} />
         </Routes>
     </BrowserRouter>
-    ```
+  ```
 - ```javascript
-    <Link to="/"></Link>
-    ```
+  <Link to="/"></Link>
+  ```
 - `useNavigate()`
+- 3401 강서현 1-2 배경색 ★ useState, CSS class/style 변경
