@@ -40,6 +40,17 @@
     align-items: center;
     padding: 10px;
 }
+.todo__item-main {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    gap: 4px;
+}
+.todo__created-at {
+    color: #666;
+    font-size: 0.85rem;
+    margin-left: 10px;
+}
 .todo__check {
     width: 20px;
     height: 20px;

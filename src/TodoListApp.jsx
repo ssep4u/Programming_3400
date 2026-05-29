@@ -13,6 +13,7 @@ class Todo {
     this.id = Date.now(); //id: 고유의 값. new Date().getTime()
     this.text = text;     //할일 내용
     this.isCompleted = false; //완료 여부: 미완
+    this.createdAt = new Date().toISOString(); // 등록 시간 저장
   }
 }
 const TODOS_STORAGE_KEY = "todos";

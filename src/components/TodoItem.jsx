@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import Checkbox from './Checkbox.jsx';
 import Button from './Button.jsx';
+import DateDisplay from './DateDisplay.jsx';
 
 export default function TodoItem({ todo, toggleTodo, deleteTodo, editTodo }) {
     //isEditing: 수정중인지 아닌지
@@ -28,11 +29,14 @@ export default function TodoItem({ todo, toggleTodo, deleteTodo, editTodo }) {
         <li className={`todo__item${todo.isCompleted ? " todo__item--complete" : ""}`}>
             {/* 수정중이 아니면 */}
             {!isEditing &&
-                <Checkbox
-                    id={todo.id}
-                    onChange={() => toggleTodo(todo.id)}
-                    checked={todo.isCompleted}
-                >{todo.text}</Checkbox>
+                <div className="todo__item-main">
+                    <Checkbox
+                        id={todo.id}
+                        onChange={() => toggleTodo(todo.id)}
+                        checked={todo.isCompleted}
+                    >{todo.text}</Checkbox>
+                    <DateDisplay date={todo.createdAt} />
+                </div>
             }
             {/* 수정중이면 */}
             {isEditing &&
