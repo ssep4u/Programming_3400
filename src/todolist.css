@@ -11,6 +11,13 @@
 .todo__title {
     font-size: 2rem;
 }
+
+.todo__clock {
+    font-size: 1.2rem;
+    color: #666;
+    margin-bottom: 20px;
+}
+
 .todo__form {
     margin-bottom: 10px;
     padding: 10px;
