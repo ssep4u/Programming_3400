@@ -40,3 +40,4 @@ npm create vite@latest .
     <Link to="/"></Link>
     ```
 - `useNavigate()`
+-  3412 임채이 1-2	배경색	★	useState, CSS class/style 변경
