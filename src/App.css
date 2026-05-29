@@ -56,6 +56,18 @@
   }
 }
 
+body{
+  background-color: pink;
+}
+
+.todo__button--add {
+  background-color: gray;
+}
+
+.todo__button--add:active {
+  background-color: rgb(115, 115, 241);
+}
+
 #center {
   display: flex;
   flex-direction: column;

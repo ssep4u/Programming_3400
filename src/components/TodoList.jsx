@@ -1,7 +1,6 @@
 import TodoItemEmpty from './TodoItemEmpty.jsx';
 import TodoItem from './TodoItem.jsx';
 
-
 export default function TodoList({ todos, ...rest }) {
     return (
         <ul className="todo__list">
