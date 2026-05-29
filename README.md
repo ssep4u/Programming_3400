@@ -40,3 +40,4 @@ npm create vite@latest .
     <Link to="/"></Link>
     ```
 - `useNavigate()`
+- 3400 임정훈 4-10	등급(구독제, 과금)	★★★★★	결제 API, 서버 검증, 권한 처리
