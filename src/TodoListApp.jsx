@@ -25,6 +25,7 @@ function TodoListApp() {
   }
 
   const [todos, setTodos] = useState(initTodos); //할일 목록 저장 state, 기본값: 빈 리스트
+  const [isPink, setIsPink] = useState(false);
 
   //todos 변경될 때, 저장하자. useEffect(명령어, [변할값])
   useEffect(() => {
@@ -65,7 +66,10 @@ function TodoListApp() {
     )
   }
   return (
-    <div className="todo">
+    <div className={`todo ${isPink ? 'todo--pink' : ''}`}>
+      <button className="todo__button todo__button--theme" onClick={() => setIsPink((prev) => !prev)}>
+        {isPink ? '⬜ 기본색' : '🩷 핑크'}
+      </button>
       <TodoHeader />
       <TodoAdder addTodo={addTodo} />
       <TodoList todos={todos} toggleTodo={toggleTodo} deleteTodo={deleteTodo} editTodo={editTodo} />
