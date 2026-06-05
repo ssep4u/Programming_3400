@@ -56,6 +56,18 @@
   }
 }
 
+body{
+  background-color: pink;
+}
+
+.todo__button--add {
+  background-color: gray;
+}
+
+.todo__button--add:hover { /* 마우스 올리면 활성화*/
+  background-color: rgb(109, 211, 255);
+}
+
 #center {
   display: flex;
   flex-direction: column;

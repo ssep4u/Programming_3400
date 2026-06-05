@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import Button from './Button.jsx'
+import '././TodoAdder.css'
 
 export default function TodoAdder({ addTodo }) {
     const [inputTodo, setInputTodo] = useState('');

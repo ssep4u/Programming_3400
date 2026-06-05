@@ -1,0 +1,8 @@
+.todo__button--add {
+    background-color: gray;
+    cursor: pointer;
+}
+
+.todo__button--add:active {
+    background-color: blue;
+}
