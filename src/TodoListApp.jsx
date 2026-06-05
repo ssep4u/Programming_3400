@@ -13,6 +13,7 @@ class Todo {
     this.id = Date.now(); //id: 고유의 값. new Date().getTime()
     this.text = text;     //할일 내용
     this.isCompleted = false; //완료 여부: 미완
+    this.isPinned = false; //고정 여부: 고정 아님
   }
 }
 const TODOS_STORAGE_KEY = "todos";
@@ -50,6 +51,11 @@ function TodoListApp() {
       )
     )
   }
+  function pinTodo(id) {
+    setTodos((todos) =>
+      todos.map((todo) => todo.id === id ? { ...todo, isPinned: !todo.isPinned } : todo)
+    )
+  }
   function deleteTodo(id) {
     // todos 하나씩 꺼내어 todo의 id가 다른 todo만 남기자
     setTodos((todos) =>
@@ -68,7 +74,7 @@ function TodoListApp() {
     <div className="todo">
       <TodoHeader />
       <TodoAdder addTodo={addTodo} />
-      <TodoList todos={todos} toggleTodo={toggleTodo} deleteTodo={deleteTodo} editTodo={editTodo} />
+      <TodoList todos={todos} toggleTodo={toggleTodo} deleteTodo={deleteTodo} editTodo={editTodo} pinTodo={pinTodo} />
     </div>
   )
 }

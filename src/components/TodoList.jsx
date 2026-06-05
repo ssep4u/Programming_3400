@@ -9,7 +9,10 @@ export default function TodoList({ todos, ...rest }) {
             {todos.length === 0 && <TodoItemEmpty />}
             {/* 아무것도 없지 않을 때 */}
             {todos.length > 0 && todos.map((todo) =>
-                <TodoItem key={todo.id} todo={todo} {...rest} />
+                todo.isPinned ? <TodoItem key={todo.id} todo={todo} {...rest} /> : null
+            )}
+            {todos.length > 0 && todos.map((todo) =>
+                !todo.isPinned ? <TodoItem key={todo.id} todo={todo} {...rest} /> : null
             )}
         </ul>
     )

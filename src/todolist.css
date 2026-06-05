@@ -53,6 +53,7 @@
 .todo__input--edit {
     flex-grow: 1;
 }
+.todo__button--pin,
 .todo__button--edit,
 .todo__button--delete {
     font-size: 0.8rem;
