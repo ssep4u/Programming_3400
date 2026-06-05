@@ -1,17 +1,17 @@
-import { useState, useEffect } from 'react'
-import './todolist.css'
+import { useState, useEffect } from "react";
+import "./todolist.css";
 // import TodoItemEmpty from './components/TodoItemEmpty.jsx';
 // import Button from './components/Button.jsx';
 // import Checkbox from './components/Checkbox.jsx'
-import TodoHeader from './components/TodoHeader.jsx'
-import TodoAdder from './components/TodoAdder.jsx'
+import TodoHeader from "./components/TodoHeader.jsx";
+import TodoAdder from "./components/TodoAdder.jsx";
 // import TodoItem from './components/TodoItem.jsx'
-import TodoList from './components/TodoList.jsx'
+import TodoList from "./components/TodoList.jsx";
 
 class Todo {
   constructor(text) {
     this.id = Date.now(); //id: 고유의 값. new Date().getTime()
-    this.text = text;     //할일 내용
+    this.text = text; //할일 내용
     this.isCompleted = false; //완료 여부: 미완
     this.isPinned = false; //고정 여부: 고정 아님
   }
@@ -26,7 +26,8 @@ function TodoListApp() {
   }
 
   const [todos, setTodos] = useState(initTodos); //할일 목록 저장 state, 기본값: 빈 리스트
-
+  const [search, setSearch] = useState("");
+  const filteredTodos = todos.filter((todo) => todo.text.toLowerCase().includes(search.toLowerCase()));
   //todos 변경될 때, 저장하자. useEffect(명령어, [변할값])
   useEffect(() => {
     //LocalStorage에 todos 저장하자
@@ -39,17 +40,13 @@ function TodoListApp() {
       //하나씩 꺼내서 새로운 리스트 만들자
       ...todos,
       //뒤에 new Todo 만들어서 추가하자
-      new Todo(text)
+      new Todo(text),
     ]);
   }
   // function addTodo(text) { setTodos((todos) => [...todos, new Todo(text)])}
   function toggleTodo(id) {
     // todos에서 하나씩 꺼내어 todo의 id가 id와 같으면, !이전 isCompleted
-    setTodos((todos) =>
-      todos.map((todo) =>
-        todo.id === id ? { ...todo, isCompleted: !todo.isCompleted } : todo
-      )
-    )
+    setTodos((todos) => todos.map((todo) => (todo.id === id ? { ...todo, isCompleted: !todo.isCompleted } : todo)));
   }
   function pinTodo(id) {
     setTodos((todos) =>
@@ -58,24 +55,18 @@ function TodoListApp() {
   }
   function deleteTodo(id) {
     // todos 하나씩 꺼내어 todo의 id가 다른 todo만 남기자
-    setTodos((todos) =>
-      todos.filter((todo) => todo.id !== id)
-    )
+    setTodos((todos) => todos.filter((todo) => todo.id !== id));
   }
   function editTodo(id, newText) {
     //todos에서 하나씩 꺼내어 todo. id가 같으면 text를 newText로 대입하자
-    setTodos((todos) =>
-      todos.map((todo) =>
-        todo.id === id ? { ...todo, text: newText } : todo
-      )
-    )
+    setTodos((todos) => todos.map((todo) => (todo.id === id ? { ...todo, text: newText } : todo)));
   }
   return (
     <div className="todo">
       <TodoHeader />
-      <TodoAdder addTodo={addTodo} />
-      <TodoList todos={todos} toggleTodo={toggleTodo} deleteTodo={deleteTodo} editTodo={editTodo} pinTodo={pinTodo} />
+      <TodoAdder addTodo={addTodo} search={search} setSearch={setSearch} />
+      <TodoList todos={filteredTodos} toggleTodo={toggleTodo} deleteTodo={deleteTodo} editTodo={editTodo} pinTodo={pinTodo} />
     </div>
-  )
+  );
 }
 export default TodoListApp;
