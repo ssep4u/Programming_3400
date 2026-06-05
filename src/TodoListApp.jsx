@@ -7,12 +7,15 @@ import TodoHeader from './components/TodoHeader.jsx'
 import TodoAdder from './components/TodoAdder.jsx'
 // import TodoItem from './components/TodoItem.jsx'
 import TodoList from './components/TodoList.jsx'
+import Confetti from 'react-confetti'
 
 class Todo {
-  constructor(text) {
+  constructor(text, dueDate) {
     this.id = Date.now(); //id: 고유의 값. new Date().getTime()
     this.text = text;     //할일 내용
     this.isCompleted = false; //완료 여부: 미완
+    this.createdAt = Date.now(); //생성 날짜
+    this.dueDate = dueDate; //마감일
   }
 }
 const TODOS_STORAGE_KEY = "todos";
@@ -32,13 +35,13 @@ function TodoListApp() {
     localStorage.setItem(TODOS_STORAGE_KEY, JSON.stringify(todos));
   }, [todos]);
 
-  function addTodo(text) {
+  function addTodo(text, dueDate) {
     setTodos((todos) => [
       //이전todos 가져오자
       //하나씩 꺼내서 새로운 리스트 만들자
       ...todos,
       //뒤에 new Todo 만들어서 추가하자
-      new Todo(text)
+      new Todo(text, dueDate)
     ]);
   }
   // function addTodo(text) { setTodos((todos) => [...todos, new Todo(text)])}
@@ -56,11 +59,11 @@ function TodoListApp() {
       todos.filter((todo) => todo.id !== id)
     )
   }
-  function editTodo(id, newText) {
+  function editTodo(id, newText, newDueDate) {
     //todos에서 하나씩 꺼내어 todo. id가 같으면 text를 newText로 대입하자
     setTodos((todos) =>
       todos.map((todo) =>
-        todo.id === id ? { ...todo, text: newText } : todo
+        todo.id === id ? { ...todo, text: newText, dueDate: newDueDate } : todo
       )
     )
   }
