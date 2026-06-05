@@ -65,7 +65,7 @@ body{
 }
 
 .todo__button--add:hover { /* 마우스 올리면 활성화*/
-  background-color: rgb(115, 115, 241);
+  background-color: rgb(109, 211, 255);
 }
 
 #center {
