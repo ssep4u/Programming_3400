@@ -40,3 +40,5 @@ npm create vite@latest .
     <Link to="/"></Link>
     ```
 - `useNavigate()`
+- 3414 조현서 1-1	날짜 표시?	★	Date, 컴포넌트 렌더링
+- 3414 조현서 2-6 마감일 지정 ★★ <input type="date">, todo 수정
