@@ -40,3 +40,6 @@ npm create vite@latest .
     <Link to="/"></Link>
     ```
 - `useNavigate()`
+
+- 3410 이현우  2-1	수정하다가 ESC 누르면, 수정 취소
+- 3410 이현우  2-2	우선순위

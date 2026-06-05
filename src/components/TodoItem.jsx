@@ -2,7 +2,7 @@ import { useState } from 'react';
 import Checkbox from './Checkbox.jsx';
 import Button from './Button.jsx';
 
-export default function TodoItem({ todo, toggleTodo, deleteTodo, editTodo }) {
+export default function TodoItem({ todo, toggleTodo, deleteTodo, editTodo, setTodoPriority }) {
     //isEditing: 수정중인지 아닌지
     const [isEditing, setIsEditing] = useState(false);
     //editText: 수정중인 text
@@ -41,7 +41,10 @@ export default function TodoItem({ todo, toggleTodo, deleteTodo, editTodo }) {
                     className="todo__input--edit"
                     value={editText}
                     onChange={(event) => setEditText(event.target.value)}
-                    onKeyDown={(event) => { if (event.key === 'Enter') handleEditClick() }}
+                    onKeyDown={(event) => {
+                        if (event.key === 'Enter') handleEditClick()
+                        else if (event.key === 'Escape') setIsEditing(false)
+                    }}
                     autoFocus
                 />
             }
@@ -54,6 +57,15 @@ export default function TodoItem({ todo, toggleTodo, deleteTodo, editTodo }) {
                 className="todo__button todo__button--delete"
                 onClick={() => deleteTodo(todo.id)}
             >❌</Button>
+            <select
+                className="todo__select-priority"
+                value={todo.priority}
+                onChange={(event) => setTodoPriority(todo.id, parseInt(event.target.value))}
+            >
+                <option value={0}>낮음</option>
+                <option value={1}>보통</option>
+                <option value={2}>높음</option>
+            </select>
         </li>
     )
 }
