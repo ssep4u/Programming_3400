@@ -17,7 +17,7 @@ export default function TodoItem({ todo, toggleTodo, deleteTodo, editTodo }) {
             const trimmedText = editText.trim();
             if (trimmedText !== "" && trimmedText !== todo.text) {
                 //빈칸이 아니고, 이전 text와 다르면,
-                editTodo(todo.id, trimmedText); //editTodo()
+                editTodo(todo.id, trimmedText, todo.dueDate); //editTodo()
             }
             setIsEditing(false);
         }
@@ -27,12 +27,14 @@ export default function TodoItem({ todo, toggleTodo, deleteTodo, editTodo }) {
         // todo.isCompleted가 참이면 " todo__item--complete" 아니면 ""
         <li className={`todo__item${todo.isCompleted ? " todo__item--complete" : ""}`}>
             {/* 수정중이 아니면 */}
+            {/* 2-6 마감일 지정 ★★ <input type="date">, todo 수정 */}
             {!isEditing &&
                 <Checkbox
                     id={todo.id}
                     onChange={() => toggleTodo(todo.id)}
                     checked={todo.isCompleted}
-                >{todo.text}</Checkbox>
+                    label={`${todo.text} ${todo.dueDate ? `(Due: ${new Date(todo.dueDate).toLocaleDateString()})` : ""}`}
+                >{todo.text} {todo.dueDate && `(마감일 : ${new Date(todo.dueDate).toLocaleDateString()})`}</Checkbox>
             }
             {/* 수정중이면 */}
             {isEditing &&
@@ -45,7 +47,7 @@ export default function TodoItem({ todo, toggleTodo, deleteTodo, editTodo }) {
                     autoFocus
                 />
             }
-
+            <span className="todo__date">{new Date(todo.createdAt).toLocaleDateString()}</span>
             <Button
                 className="todo__button todo__button--edit"
                 onClick={handleEditClick}
