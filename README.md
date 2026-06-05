@@ -29,7 +29,7 @@ npm create vite@latest .
 - `style={{}}`
 - HomeApp: state를 이용해서 다른 컴포넌트 표시하자
 - `npm install react-router-dom`
-- ```javascript
+-     ```javascript
     <BrowserRouter>
         <Routes>
             <Route path="/" element={} />
