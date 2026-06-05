@@ -41,7 +41,10 @@ export default function TodoItem({ todo, toggleTodo, deleteTodo, editTodo }) {
                     className="todo__input--edit"
                     value={editText}
                     onChange={(event) => setEditText(event.target.value)}
-                    onKeyDown={(event) => { if (event.key === 'Enter') handleEditClick() }}
+                    onKeyDown={(event) => {
+                        if (event.key === 'Enter') handleEditClick()
+                        else if (event.key === 'Escape') setIsEditing(false)
+                    }}
                     autoFocus
                 />
             }
