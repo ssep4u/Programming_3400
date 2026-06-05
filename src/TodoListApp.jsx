@@ -7,12 +7,14 @@ import TodoHeader from './components/TodoHeader.jsx'
 import TodoAdder from './components/TodoAdder.jsx'
 // import TodoItem from './components/TodoItem.jsx'
 import TodoList from './components/TodoList.jsx'
+import TodoDate from './components/TodoDate.jsx';
 
 class Todo {
   constructor(text) {
-    this.id = Date.now(); //id: 고유의 값. new Date().getTime()
-    this.text = text;     //할일 내용
-    this.isCompleted = false; //완료 여부: 미완
+    this.id = Date.now();
+    this.text = text;
+    this.isCompleted = false;
+    this.createdAt = new Date().toLocaleString('ko-KR');
   }
 }
 const TODOS_STORAGE_KEY = "todos";
@@ -65,11 +67,17 @@ function TodoListApp() {
     )
   }
   return (
-    <div className="todo">
-      <TodoHeader />
-      <TodoAdder addTodo={addTodo} />
-      <TodoList todos={todos} toggleTodo={toggleTodo} deleteTodo={deleteTodo} editTodo={editTodo} />
-    </div>
-  )
+  <div className="todo">
+    <TodoHeader />
+    <TodoDate />
+    <TodoAdder addTodo={addTodo} />
+    <TodoList
+      todos={todos}
+      toggleTodo={toggleTodo}
+      deleteTodo={deleteTodo}
+      editTodo={editTodo}
+    />
+  </div>
+)
 }
 export default TodoListApp;

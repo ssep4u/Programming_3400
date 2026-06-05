@@ -62,6 +62,17 @@
     text-decoration: line-through;
     color: #999;
 }
-
+.todo-date {
+  text-align: center;
+  font-size: 1rem;
+  color: #666;
+  margin-bottom: 15px;
+}
+.todo__date {
+    display: block;
+    font-size: 12px;
+    color: gray;
+    margin-left: 30px;
+}
 /* A > B: A 바로 아래 자식 B
 A B: A 언젠가 자손 B */

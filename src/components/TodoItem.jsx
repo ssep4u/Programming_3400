@@ -28,11 +28,19 @@ export default function TodoItem({ todo, toggleTodo, deleteTodo, editTodo }) {
         <li className={`todo__item${todo.isCompleted ? " todo__item--complete" : ""}`}>
             {/* 수정중이 아니면 */}
             {!isEditing &&
-                <Checkbox
-                    id={todo.id}
-                    onChange={() => toggleTodo(todo.id)}
-                    checked={todo.isCompleted}
-                >{todo.text}</Checkbox>
+                <div>
+                    <Checkbox
+                        id={todo.id}
+                        onChange={() => toggleTodo(todo.id)}
+                        checked={todo.isCompleted}
+                    >
+                        {todo.text}
+                    </Checkbox>
+
+                    <small className="todo__date">
+                        {todo.createdAt}
+                    </small>
+                </div>
             }
             {/* 수정중이면 */}
             {isEditing &&
