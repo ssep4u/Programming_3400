@@ -40,3 +40,5 @@ npm create vite@latest .
     <Link to="/"></Link>
     ```
 - `useNavigate()`
+
+- 3405 박홍준 3-10	완료한 것 하루 지나면 삭제	★★★ 	useEffect, 날짜 비교, 자동 정리

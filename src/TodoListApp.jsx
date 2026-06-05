@@ -13,6 +13,8 @@ class Todo {
     this.id = Date.now(); //id: 고유의 값. new Date().getTime()
     this.text = text;     //할일 내용
     this.isCompleted = false; //완료 여부: 미완
+    this.completedAt = null; //완료 날짜: 없음
+    this.softDeleted = false; //삭제 여부: 삭제 안함
   }
 }
 const TODOS_STORAGE_KEY = "todos";
@@ -21,7 +23,15 @@ function TodoListApp() {
   function initTodos() {
     const savedTodos = localStorage.getItem(TODOS_STORAGE_KEY);
 
-    return savedTodos ? JSON.parse(savedTodos) : [];
+    const parsedTodos = savedTodos ? JSON.parse(savedTodos) : [];
+
+    parsedTodos.forEach((todo) => {
+      if (new Date().getTime() - todo.completedAt > 24 * 60 * 60 * 1000) {
+        todo.softDeleted = true;
+      }
+    })
+
+    return parsedTodos;
   }
 
   const [todos, setTodos] = useState(initTodos); //할일 목록 저장 state, 기본값: 빈 리스트
@@ -46,16 +56,20 @@ function TodoListApp() {
     // todos에서 하나씩 꺼내어 todo의 id가 id와 같으면, !이전 isCompleted
     setTodos((todos) =>
       todos.map((todo) =>
-        todo.id === id ? { ...todo, isCompleted: !todo.isCompleted } : todo
+        todo.id === id ? { ...todo, isCompleted: !todo.isCompleted, completedAt: !todo.isCompleted ? new Date().getTime() : null } : todo
       )
     )
   }
+
   function deleteTodo(id) {
-    // todos 하나씩 꺼내어 todo의 id가 다른 todo만 남기자
     setTodos((todos) =>
-      todos.filter((todo) => todo.id !== id)
+      todos.map((todo) =>
+        todo.id === id ? { ...todo, softDeleted: true } : todo
+      )
     )
+
   }
+
   function editTodo(id, newText) {
     //todos에서 하나씩 꺼내어 todo. id가 같으면 text를 newText로 대입하자
     setTodos((todos) =>
