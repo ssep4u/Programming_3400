@@ -63,5 +63,10 @@
     color: #999;
 }
 
+audio {
+    height: 30px;
+    flex-shrink: 0;
+}
+
 /* A > B: A 바로 아래 자식 B
 A B: A 언젠가 자손 B */

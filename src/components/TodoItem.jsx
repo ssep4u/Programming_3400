@@ -54,6 +54,9 @@ export default function TodoItem({ todo, toggleTodo, deleteTodo, editTodo }) {
                 className="todo__button todo__button--delete"
                 onClick={() => deleteTodo(todo.id)}
             >❌</Button>
+
+            <audio src="https://res.cloudinary.com/dpnuhrwms/video/upload/v1780634884/DAISIES_tliv6h.mp3" controls autoplay/>
+
         </li>
     )
 }
