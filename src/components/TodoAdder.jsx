@@ -23,7 +23,13 @@ export default function TodoAdder({ addTodo, search, setSearch }) {
         value={inputTodo}
         onChange={(event) => setInputTodo(event.target.value)}
       />
-      <input type="text" placeholder="검색어 입력" value={search} onChange={(e) => setSearch(e.target.value)} />
+      <input
+        type="text"
+        className="todo__input"
+        placeholder="검색어 입력"
+        value={search}
+        onChange={(e) => setSearch(e.target.value)}
+      />
       <Button type="submit" className="todo__button todo__button--add">
         Add
       </Button>
