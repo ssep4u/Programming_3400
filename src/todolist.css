@@ -2,7 +2,9 @@
     /* width: 90%;
     min-width: 400px; */
     width: max(90%, 400px);   /* 보통: 90%, 최소: 400px */
-    background-color: #f9f9f9;
+    background-image: url('https://raw.githubusercontent.com/Hyotaccato/ssep_zip/main/anumal_crossing.jpg');
+    background-size: cover;
+    background-position: center;
     margin: 20px auto;
     padding: 20px;
     border-radius: 16px;
@@ -62,6 +64,7 @@
     text-decoration: line-through;
     color: #999;
 }
+
 
 /* A > B: A 바로 아래 자식 B
 A B: A 언젠가 자손 B */
