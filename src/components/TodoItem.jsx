@@ -7,7 +7,6 @@ export default function TodoItem({ todo, toggleTodo, deleteTodo, editTodo, pinTo
     const [isEditing, setIsEditing] = useState(false);
     //editText: 수정중인 text
     const [editText, setEditText] = useState(todo.text);
-    const [isPinned, setIsPinned] = useState(false);
     function handleEditClick() {
         //수정중이 아니면 -> 수정중, <input />
         if (!isEditing) {
