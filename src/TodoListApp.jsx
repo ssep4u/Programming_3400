@@ -13,6 +13,7 @@ class Todo {
     this.id = Date.now(); //id: 고유의 값. new Date().getTime()
     this.text = text;     //할일 내용
     this.isCompleted = false; //완료 여부: 미완
+    this.priority = 1; //우선순위: 보통
   }
 }
 const TODOS_STORAGE_KEY = "todos";
@@ -64,11 +65,18 @@ function TodoListApp() {
       )
     )
   }
+  function setTodoPriority(id, priority) {
+    setTodos((todos) =>
+      todos.map((todo) =>
+        todo.id === id ? { ...todo, priority: priority } : todo
+      )
+    )
+  }
   return (
     <div className="todo">
       <TodoHeader />
       <TodoAdder addTodo={addTodo} />
-      <TodoList todos={todos} toggleTodo={toggleTodo} deleteTodo={deleteTodo} editTodo={editTodo} />
+      <TodoList todos={todos} toggleTodo={toggleTodo} deleteTodo={deleteTodo} editTodo={editTodo} setTodoPriority={setTodoPriority} />
     </div>
   )
 }

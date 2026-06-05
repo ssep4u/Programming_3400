@@ -62,6 +62,12 @@
     text-decoration: line-through;
     color: #999;
 }
+.todo__select-priority {
+    margin-left: 10px;
+    padding: 5px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}
 
 /* A > B: A 바로 아래 자식 B
 A B: A 언젠가 자손 B */
