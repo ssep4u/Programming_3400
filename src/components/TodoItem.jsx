@@ -32,6 +32,7 @@ export default function TodoItem({ todo, toggleTodo, deleteTodo, editTodo }) {
                     id={todo.id}
                     onChange={() => toggleTodo(todo.id)}
                     checked={todo.isCompleted}
+                    createdDate={todo.createdDate}
                 >{todo.text}</Checkbox>
             }
             {/* 수정중이면 */}
