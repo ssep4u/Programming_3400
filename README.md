@@ -40,3 +40,4 @@ npm create vite@latest .
     <Link to="/"></Link>
     ```
 - `useNavigate()`
+- 3414 조현서 2-9 삭제: ceremony ★★★	조건부 렌더링, animation/confetti library
