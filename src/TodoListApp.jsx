@@ -7,6 +7,7 @@ import TodoHeader from './components/TodoHeader.jsx'
 import TodoAdder from './components/TodoAdder.jsx'
 // import TodoItem from './components/TodoItem.jsx'
 import TodoList from './components/TodoList.jsx'
+import Confetti from 'react-confetti'
 
 class Todo {
   constructor(text, dueDate) {

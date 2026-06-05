@@ -42,3 +42,4 @@ npm create vite@latest .
 - `useNavigate()`
 - 3414 조현서 1-1	날짜 표시?	★	Date, 컴포넌트 렌더링
 - 3414 조현서 2-6 마감일 지정 ★★ <input type="date">, todo 수정
+- 3414 조현서 2-9 삭제: ceremony ★★★	조건부 렌더링, animation/confetti library
