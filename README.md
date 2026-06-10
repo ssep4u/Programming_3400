@@ -48,5 +48,10 @@ npm create vite@latest .
   <Link to="/"></Link>
   ```
 - `useNavigate()`
+<<<<<<< 1-5
+
+- 3404 박재영  1-5	배경음악	★★★	useRef, <audio>, 재생/정지 상태
+=======
 - 3403 민정원 2-11 ★★ boolean 값, 정렬 로직
 - 3401 강서현 1-2 배경색 ★ useState, CSS class/style 변경
+>>>>>>> main

@@ -6,7 +6,12 @@ import "./todolist.css";
 import TodoHeader from "./components/TodoHeader.jsx";
 import TodoAdder from "./components/TodoAdder.jsx";
 // import TodoItem from './components/TodoItem.jsx'
+<<<<<<< 1-5
+import TodoList from './components/TodoList.jsx'
+import BackgroundMusic from './components/BackgroundMusic.jsx'
+=======
 import TodoList from "./components/TodoList.jsx";
+>>>>>>> main
 
 class Todo {
   constructor(text) {
@@ -67,8 +72,14 @@ function TodoListApp() {
   return (
     <div className="todo">
       <TodoHeader />
+<<<<<<< 1-5
+      <BackgroundMusic />
+      <TodoAdder addTodo={addTodo} />
+      <TodoList todos={todos} toggleTodo={toggleTodo} deleteTodo={deleteTodo} editTodo={editTodo} />
+=======
       <TodoAdder addTodo={addTodo} search={search} setSearch={setSearch} />
       <TodoList todos={sortedTodos} toggleTodo={toggleTodo} deleteTodo={deleteTodo} editTodo={editTodo} pinTodo={pinTodo} />
+>>>>>>> main
     </div>
   );
 }
