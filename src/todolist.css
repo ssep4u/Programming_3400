@@ -1,8 +1,12 @@
+body{
+    background-color: #ff992d;
+}
+
 .todo {
     /* width: 90%;
     min-width: 400px; */
     width: max(90%, 400px);   /* 보통: 90%, 최소: 400px */
-    background-color: #f9f9f9;
+    background-color: #ff9327;
     margin: 20px auto;
     padding: 20px;
     border-radius: 16px;
@@ -35,6 +39,38 @@
 .todo__button--add {
     background-color: #4984e4;
 }
+
+/* background music */
+.background-music {
+    display: flex;
+    gap: 8px;
+    justify-content: flex-end;
+    margin: 10px 0;
+}
+.music-button {
+    min-width: 64px;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 8px;
+    color: #fff;
+    font-size: 0.95rem;
+    cursor: pointer;
+}
+.music-button:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+.music-button--play {
+    background-color: #2f9e44;
+}
+.music-button--stop {
+    background-color: #e03131;
+}
+.music-button--previous,
+.music-button--next {
+    background-color: #495057;
+}
+
 .todo__item {
     display: flex;
     align-items: center;
@@ -53,6 +89,7 @@
 .todo__input--edit {
     flex-grow: 1;
 }
+.todo__button--pin,
 .todo__button--edit,
 .todo__button--delete {
     font-size: 0.8rem;

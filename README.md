@@ -1,16 +1,24 @@
 # Programming 소스 코드 🥱
+
 ## 02_counter
+
 vanilla HTML, JavaScript
+
 ## React 시작 🦥
+
 ```shell
 npm create vite@latest .
 ```
+
 ### CounterApp 😴
+
 - `useState(초기값)`
 - `onClick={() => set함수(바꿀값)}`
 - `onClick={() => set함수((이전state) => 이전state + 1)}`
 - `onClick={함수이름}`
+
 ### TodoListApp 🧂
+
 - React Component 분리
 - for -> htmlFor, class -> className
 - props
@@ -35,10 +43,13 @@ npm create vite@latest .
             <Route path="/" element={} />
         </Routes>
     </BrowserRouter>
-    ```
+  ```
 - ```javascript
-    <Link to="/"></Link>
-    ```
+  <Link to="/"></Link>
+  ```
 - `useNavigate()`
 
 - 3405 박홍준 3-10	완료한 것 하루 지나면 삭제	★★★ 	useEffect, 날짜 비교, 자동 정리
+- 3404 박재영  1-5	배경음악	★★★	useRef, <audio>, 재생/정지 상태
+- 3403 민정원 2-11 ★★ boolean 값, 정렬 로직
+- 3401 강서현 1-2 배경색 ★ useState, CSS class/style 변경
