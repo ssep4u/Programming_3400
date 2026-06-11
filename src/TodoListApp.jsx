@@ -26,10 +26,10 @@ function TodoListApp() {
     const parsedTodos = savedTodos ? JSON.parse(savedTodos) : [];
 
     parsedTodos.forEach((todo) => {
-      if (new Date().getTime() - todo.completedAt > 24 * 60 * 60 * 1000) {
+      if (todo.isCompleted && typeof todo.completedAt === 'number' && Date.now() - todo.completedAt > 24 * 60 * 60 * 1000) {
         todo.softDeleted = true;
       }
-    })
+    });
 
     return parsedTodos;
   }
