@@ -48,6 +48,7 @@ npm create vite@latest .
   <Link to="/"></Link>
   ```
 - `useNavigate()`
+- 3407 윤다경 1-6 시계	★★	useEffect, setInterval, cleanup
 
 - 3405 박홍준 3-10	완료한 것 하루 지나면 삭제	★★★ 	useEffect, 날짜 비교, 자동 정리
 - 3404 박재영  1-5	배경음악	★★★	useRef, <audio>, 재생/정지 상태
