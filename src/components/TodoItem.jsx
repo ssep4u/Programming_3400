@@ -6,7 +6,7 @@ import Confetti from 'react-confetti'
 
 
 
-export default function TodoItem({ todo, toggleTodo, deleteTodo, editTodo }) {
+export default function TodoItem({ todo, toggleTodo, deleteTodo, editTodo, pinTodo }) {
     //isEditing: 수정중인지 아닌지
     const [isEditing, setIsEditing] = useState(false);
     //editText: 수정중인 text
@@ -45,7 +45,7 @@ export default function TodoItem({ todo, toggleTodo, deleteTodo, editTodo }) {
                     id={todo.id}
                     onChange={() => toggleTodo(todo.id)}
                     checked={todo.isCompleted}
-                >{todo.text}</Checkbox>
+                >{todo.isPinned && "📌"}{todo.text}</Checkbox>
             }
             {/* 수정중이면 */}
             {isEditing &&
@@ -68,6 +68,10 @@ export default function TodoItem({ todo, toggleTodo, deleteTodo, editTodo }) {
                 className="todo__button todo__button--delete"
                 onClick={handleDeleteClick}
             >❌</Button>
+            <Button
+                className="todo__button todo__button--pin"
+                onClick={() => pinTodo(todo.id)}
+            >📌</Button>
         </li>
     )
 }
