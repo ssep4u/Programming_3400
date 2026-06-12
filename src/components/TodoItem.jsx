@@ -1,12 +1,18 @@
 import { useState } from 'react';
 import Checkbox from './Checkbox.jsx';
 import Button from './Button.jsx';
+import { useWindowSize } from 'react-use'
+import Confetti from 'react-confetti'
+
+
 
 export default function TodoItem({ todo, toggleTodo, deleteTodo, editTodo, pinTodo }) {
     //isEditing: 수정중인지 아닌지
     const [isEditing, setIsEditing] = useState(false);
     //editText: 수정중인 text
     const [editText, setEditText] = useState(todo.text);
+    const { width, height } = useWindowSize()
+    const [showConfetti, setShowConfetti] = useState(false);
     function handleEditClick() {
         //수정중이 아니면 -> 수정중, <input />
         if (!isEditing) {
@@ -22,6 +28,13 @@ export default function TodoItem({ todo, toggleTodo, deleteTodo, editTodo, pinTo
             setIsEditing(false);
         }
 
+    }
+    function handleDeleteClick() {
+        setShowConfetti(true);
+        setTimeout(() => {
+            setShowConfetti(false);
+            deleteTodo(todo.id);
+        }, 5000);
     }
     return (
         // todo.isCompleted가 참이면 " todo__item--complete" 아니면 ""
@@ -50,9 +63,10 @@ export default function TodoItem({ todo, toggleTodo, deleteTodo, editTodo, pinTo
                 className="todo__button todo__button--edit"
                 onClick={handleEditClick}
             >{isEditing ? "💾" : "✏️"}</Button>
+            {showConfetti && <Confetti width={width} height={height} />}
             <Button
                 className="todo__button todo__button--delete"
-                onClick={() => deleteTodo(todo.id)}
+                onClick={handleDeleteClick}
             >❌</Button>
             <Button
                 className="todo__button todo__button--pin"

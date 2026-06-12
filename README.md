@@ -48,6 +48,7 @@ npm create vite@latest .
   <Link to="/"></Link>
   ```
 - `useNavigate()`
+- 3414 조현서 2-9 삭제: ceremony ★★★	조건부 렌더링, animation/confetti library
 - 3407 윤다경 1-6 시계	★★	useEffect, setInterval, cleanup
 
 - 3405 박홍준 3-10	완료한 것 하루 지나면 삭제	★★★ 	useEffect, 날짜 비교, 자동 정리
