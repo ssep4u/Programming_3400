@@ -4,6 +4,10 @@
     box-sizing: border-box;
 }
 
+body {
+    background-color: rgb(0, 109, 139);
+}
+
 ul {
     list-style: none;
 }
