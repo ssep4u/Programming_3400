@@ -1,8 +1,12 @@
+body{
+    background-color: #ff992d;
+}
+
 .todo {
     /* width: 90%;
     min-width: 400px; */
     width: max(90%, 400px);   /* 보통: 90%, 최소: 400px */
-    background-color: #f9f9f9;
+    background-color: #ff9327;
     margin: 20px auto;
     padding: 20px;
     border-radius: 16px;
