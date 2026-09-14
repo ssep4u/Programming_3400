@@ -36,7 +36,7 @@ npm create vite@latest .
         </Routes>
     </BrowserRouter>
     ```
-- ```javascript
+-   ```javascript
     <Link to="/"></Link>
     ```
 - `useNavigate()`
